@@ -1,7 +1,7 @@
-Yocto Recipe for the Printer Application Framework (PAPPL)
-==========================================================
+Yocto Recipes for the Printer Application Framework (PAPPL)
+===========================================================
 
-This repository contains a [Yocto][1] recipe for building [PAPPL][2] for your
+This repository contains [Yocto][1] recipes for building [PAPPL][2] for your
 embedded Linux printing projects.  PAPPL is a simple C-based framework/library
 for developing CUPS Printer Applications, which are the recommended replacement
 for printer drivers.  When used in an embedded Linux environment, it is possible
@@ -10,6 +10,27 @@ desktop operating systems with a single printer application.
 
 PAPPL also supports the Linux USB gadget API so that your embedded device can be
 connected to a desktop computer and show up as a regular USB printer.
+
+
+Importing Into Yocto
+--------------------
+
+Typically you will use a Git submodule to import this repository into one of
+your "meta" layers, e.g.:
+
+    cd meta-myproject
+    git submodule add https://github.com/michaelrsweet/recipes-pappl.git
+
+From there you just add a dependency on "pappl" to get PAPPL and its
+dependencies added to your image(s).
+
+> *Note:* I will be branching for each PAPPL feature release, so you can specify
+> a branch for the submodule with "-b vMAJOR.MINOR" to stick with a particular
+> stable release track.  The "master" branch tracks the bleeding edge of PAPPL
+> development...
+
+For USB gadget support you'll need to enable `CONFIG_USB_CONFIGFS_F_PRINTER`
+and `CONFIG_USB_G_PRINTER` (set to "m") in your Linux kernel "defconfig" file.
 
 
 Legal Stuff
