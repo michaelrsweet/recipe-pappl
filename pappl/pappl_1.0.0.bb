@@ -1,6 +1,0 @@
-require pappl.inc
-
-LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
-
-SRC_URI[md5sum] = "639dcad2364a197de2bf15267bbf9be8"
-SRC_URI[sha256sum] = "eb9064ce83fca8da8d9a879c9a499b5c37306f71297521246d0d478e2260234c"
