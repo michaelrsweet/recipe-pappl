@@ -15,12 +15,14 @@ inherit autotools-brokensep binconfig pkgconfig
 
 CLEANBROKEN = "1"
 EXTRA_AUTORECONF += "--exclude=autoheader"
-EXTRA_OECONF = "--with-tls=gnutls --disable-gssapi --disable-relro --sysconfdir=/etc --with-components=libcupslite DSOFLAGS='${LDFLAGS}'"
+EXTRA_OECONF = "--with-tls=gnutls --disable-gssapi --disable-relro --sysconfdir=/etc --with-components=libcupslite"
 
 FILES_${PN} = "${libdir}/libcups.so.* /etc/cups"
 
 # Override autotools_do_configure to prevent removal of the configure script...
 autotools_do_configure() {
+	DSOFLAGS="${LDFLAGS}"
+	export DSOFLAGS
 	oe_runconf
 }
 
