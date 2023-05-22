@@ -9,6 +9,7 @@ PACKAGECONFIG[pam] = "--enable-pam, --disable-pam, libpam"
 
 inherit autotools-brokensep binconfig pkgconfig
 
+CLEANBROKEN = "1"
 EXTRA_AUTORECONF += "--exclude=autoheader"
 
 FILES_${PN} = " /usr/lib/libpappl.so.1 /usr/share/pappl"
