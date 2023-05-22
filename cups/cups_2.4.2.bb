@@ -15,9 +15,9 @@ inherit autotools-brokensep binconfig pkgconfig
 
 CLEANBROKEN = "1"
 EXTRA_AUTORECONF += "--exclude=autoheader"
-EXTRA_OECONF = "--with-tls=gnutls --disable-gssapi --disable-relro --sysconfdir=/data/etc --with-components=libcupslite 'DSOFLAGS=${LDFLAGS}'"
+EXTRA_OECONF = "--with-tls=gnutls --disable-gssapi --disable-relro --sysconfdir=/etc --with-components=libcupslite 'DSOFLAGS=${LDFLAGS}'"
 
-FILES_${PN} = "${libdir}/libcups.so.* /data/etc/cups"
+FILES_${PN} = "${libdir}/libcups.so.* /etc/cups"
 
 # Override autotools_do_configure to prevent removal of the configure script...
 autotools_do_configure() {
@@ -27,8 +27,7 @@ autotools_do_configure() {
 do_install () {
 	oe_runmake "DSTROOT=${D}" install
 
-	# Create /data/etc/cups/ssl directory
-	install -d -m 755 ${D}/data/etc/cups
-	install -d -m 700 ${D}/data/etc/cups/ssl
+	# Create /etc/cups/ssl directory
+	install -d -m 755 ${D}/etc/cups
+	install -d -m 700 ${D}/etc/cups/ssl
 }
-
