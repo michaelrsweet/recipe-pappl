@@ -24,10 +24,8 @@ your "meta" layers, e.g.:
 From there you just add a dependency on "pappl" to get PAPPL and its
 dependencies added to your image(s).
 
-> *Note:* I will be branching for each PAPPL feature release, so you can specify
-> a branch for the submodule with "-b vMAJOR.MINOR" to stick with a particular
-> stable release track.  The "master" branch tracks the bleeding edge of PAPPL
-> development...
+> *Note:* The "master" branch of this repository tracks the current stable
+> release of PAPPL...
 
 For USB gadget support you'll need to enable `CONFIG_USB_CONFIGFS_F_PRINTER`
 and `CONFIG_USB_G_PRINTER` (set to "m") in your Linux kernel "defconfig" file.
